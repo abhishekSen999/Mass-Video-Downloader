@@ -1,0 +1,26 @@
+{
+  "name": "mass_video_downloader",
+  "version": "1.0.0",
+  "description": "This plugin scrapes the provided link (and all the subsequent links provided in the page (optional)) and downloads the available videos in .mp4 and .mkv format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekSen999/Mass-Video-Downloader.git"
+  },
+  "keywords": [
+    "\"web",
+    "scrapping\"",
+    "\"mass",
+    "video",
+    "downloader\""
+  ],
+  "author": "Abhishek Sen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhishekSen999/Mass-Video-Downloader/issues"
+  },
+  "homepage": "https://github.com/abhishekSen999/Mass-Video-Downloader#readme"
+}
