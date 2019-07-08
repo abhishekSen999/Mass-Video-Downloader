@@ -1,1 +1,0 @@
-rapydscript -b -p -m linkdownloader_video.py > linkdownloader_video.js

@@ -1,6 +1,6 @@
 <html>
     <head>
-<title>Getting Started Extension's Popup</title>
+<title>Mass Video Downloader</title>
 <style>
 body {
 font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -9,6 +9,7 @@ font-size: 100%;
 
 #status {
 /* avoid an excessively wide status text */
+display: none;
 white-space: pre;
 text-overflow: ellipsis;
 overflow: hidden;
@@ -21,16 +22,20 @@ max-width: 400px;
 - Policy documentation[1] for details and explanation.
 -
 - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+
 -->
 
 <script src="jquery.min.js"></script>
 </head>
 <body>
-        <iframe id="my_iframe" style="display:none;"></iframe>
-<div id="result">Enter Link</div>
-<div><textarea id="archive_link"></textarea></div>
-<button id="download" >Download</button>
-<script type="text/javascript" src="linkdownloader_video.js"></script>
+        <iframe id="my_iframe"  style="display:none;" ></iframe>
+        
+        <div id="result">Enter Link</div>
+        <div><textarea id="archive_link"></textarea></div>
+        <button id="download" >Download</button><p id="status" ></p>
+        <div><textarea id="content" style="display:none"></textarea></div>
+        <script type="text/javascript" src="linkdownloader_video.js"></script>
+        
 </body>
 </html>
 
