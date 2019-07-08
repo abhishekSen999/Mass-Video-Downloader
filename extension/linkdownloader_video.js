@@ -24,7 +24,7 @@ function scrapeAndDownload(url,newDocument)//scrapes given  html document object
         downloadLink(indexToDownload);
     }
         
-    document.getElementById("status").innerHTML="Finished Downloading "
+    //document.getElementById("status").innerHTML="Finished Downloading "
 }
 
 function isleftToDownload(indexToDownload)
@@ -39,7 +39,7 @@ function downloadLink(indexToDownload)
     let url=video_links[indexToDownload];
     console.log("downloading: "+url);
     //downloadCompleted=0;
-    document.getElementById("status").innerHTML="Downloading fuck";
+    document.getElementById("status").innerHTML="Downloading";
     //document.getElementById('my_iframe').src=url;
     var downloading=chrome.downloads.download({url},);
     chrome.downloads.onChanged.addListener(function(downloadDelta){
@@ -57,11 +57,13 @@ function downloadLink(indexToDownload)
 
 
 
+worker = new Worker('worker.js');
 
 // console.log("here");
 // document.getElementById("download").onclick="download()";     
 $(document).ready(function(){
     $("#download").click(function(){
+        worker.postMessage('from main: download started')
         let url=getArchiveLink();
         retrieveAndDownloadVideos(url);
     });
