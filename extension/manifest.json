@@ -13,5 +13,10 @@
 		"https://ajax.googleapis.com/",
 		"<all_urls>",
 		"downloads"
-	]
+		
+	],
+	"background": {
+		"scripts":["backgroundLinkDownloader.js"],
+		"persistent":false
+	}
 }

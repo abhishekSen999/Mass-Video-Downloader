@@ -27,33 +27,9 @@ function scrapeAndDownload(url,newDocument)//scrapes given  html document object
     //document.getElementById("status").innerHTML="Finished Downloading "
 }
 
-function isleftToDownload(indexToDownload)
-{
-    if(indexToDownload<video_links.length)return true;
-    return false;
-}
-
-
-function downloadLink(indexToDownload)
-{
-    let url=video_links[indexToDownload];
-    console.log("downloading: "+url);
-    //downloadCompleted=0;
-    document.getElementById("status").innerHTML="Downloading";
-    //document.getElementById('my_iframe').src=url;
-    var downloading=chrome.downloads.download({url},);
-    chrome.downloads.onChanged.addListener(function(downloadDelta){
-        if (downloadDelta.state && downloadDelta.state.current === "complete") {
-            if(isleftToDownload(indexToDownload+1))
-            {
-                downloadLink(indexToDownload+1);
-            }
-          }
-
-    });
     // let file=
     // let stream = IO.newOutputStream(file, "binary");
-}
+
 
 
 
@@ -63,7 +39,7 @@ worker = new Worker('worker.js');
 // document.getElementById("download").onclick="download()";     
 $(document).ready(function(){
     $("#download").click(function(){
-        worker.postMessage('from main: download started')
+        //worker.postMessage('from main: download started')
         let url=getArchiveLink();
         retrieveAndDownloadVideos(url);
     });
