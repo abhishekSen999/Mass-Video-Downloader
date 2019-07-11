@@ -1,4 +1,4 @@
-var video_links=[];
+
 // var other_links=[];
 // var links=[];
 var downloadCompleted=0;
@@ -13,15 +13,16 @@ function scrapeAndDownload(url,newDocument)//scrapes given  html document object
             // console.log(reference[i].href);
             // console.log("here13");
             // downloadLink(reference[i].href);
-            video_links.push(reference[i].href);
+            this.video_links.push(reference[i].href);
             
         }
     }
     
-    let indexToDownload=0;
-    if(isleftToDownload(indexToDownload))
+    let indexToDownload_local=0;
+    if(isleftToDownload(indexToDownload_local))
     {
-        downloadLink(indexToDownload);
+        console.log("line20");
+        downloadLink(indexToDownload_local);
     }
         
     //document.getElementById("status").innerHTML="Finished Downloading "
@@ -33,7 +34,7 @@ function scrapeAndDownload(url,newDocument)//scrapes given  html document object
 
 
 
-worker = new Worker('worker.js');
+
 
 // console.log("here");
 // document.getElementById("download").onclick="download()";     
@@ -55,30 +56,32 @@ function getArchiveLink()
 }
 
 function retrieveAndDownloadVideos(url){
+    return new Promise((reseolve, reject) => {
 
-    let xhr=new XMLHttpRequest;
-    
-//   console.log("unsent: "+xhr.status);
-    xhr.open('GET',url);
-    xhr.responseType="document";
-//   console.log(url+"  opened: "+xhr.status);
-    xhr.onprogress=function(event){
-    document.getElementById("status").style.display="inline";
-    
-    document.getElementById("status").innerHTML="Downloading";
-    //   console.log("loading: "+xhr.status);
-    console.log("loaded- "+event.loaded);
-    console.log("contentLength- "+event.total);
-    };
-    
-    xhr.onload=function(){
-        document.getElementById("status").innerHTML="Downloading Complete";
-        console.log("done"+xhr.status);
-        let newDocument=xhr.response;
-        scrapeAndDownload(url,newDocument);
-    //document.getElementById("content").innerHTML=xhr.response;
-    //document.getElementById("content").style.display="inline";
-    };
-    xhr.send();
+        let xhr=new XMLHttpRequest;
+        
+    //   console.log("unsent: "+xhr.status);
+        xhr.open('GET',url);
+        xhr.responseType="document";
+    //   console.log(url+"  opened: "+xhr.status);
+        xhr.onprogress=function(event){
+        document.getElementById("status").style.display="inline";
+        
+        document.getElementById("status").innerHTML="Downloading";
+        //   console.log("loading: "+xhr.status);
+        console.log("loaded- "+event.loaded);
+        console.log("contentLength- "+event.total);
+        };
+        
+        xhr.onload=function(){
+            //document.getElementById("status").innerHTML="Downloading Complete";
+            console.log("done"+xhr.status);
+            let newDocument=xhr.response;
+            resolve(newDocument);
+        //document.getElementById("content").innerHTML=xhr.response;
+        //document.getElementById("content").style.display="inline";
+        };
+        xhr.send();
+    });
    
 }  

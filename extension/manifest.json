@@ -16,7 +16,7 @@
 		
 	],
 	"background": {
-		"scripts":["backgroundLinkDownloader.js"],
+		"page":"background.html",
 		"persistent":false
 	}
 }
