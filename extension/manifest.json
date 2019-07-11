@@ -1,7 +1,7 @@
 {
 	"manifest_version":2,
 	"name": "Mass Video Downloader",
-	"description":"This plugin scrapes the provided link (and all the subsequent links provided in the page (optional)) and downloads the available videos in .mp4 and .mkv format.",
+	"description":"This plugin scrapes the provided link and downloads the available videos in .mp4 and .mkv format consecutively one-by-one to avoid over crowding of weak servers(which result in error 503).",
 	"version": "1.0",
 	"browser_action":
 	{
