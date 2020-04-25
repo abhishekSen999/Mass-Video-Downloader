@@ -1,5 +1,5 @@
 # Mass-Video-Downloader
-This is a Google Extension which scrapes the provided link of Parent Directory and downloads the available videos in .mp4 and .mkv format.
+This is a Chrome Extension to scrape a provided url and download available videos one-by-one to prevent overcrowding of weak servers which result in Error 503.
 
 ## Steps to setup:
 1. Download Zip od repository
